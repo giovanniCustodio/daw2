@@ -1,0 +1,45 @@
+BD
+
+usuario
+musica, letra e cifra
+========
+Tabela: usuario
+Campos:
+- id (numero)
+- nome (texto)
+- email (texto)
+- telefone (numero e null)
+- senha ()
+Outros possiveis campos:
+- sexo
+- data de nascimento
+
+Tabela: artista
+- id (numero)
+- nome (texto)
+- email (texto)
+
+Tabela: artista_musica
+- id
+- id_artista
+- id_musica
+
+Tabela: musica
+Campos: 
+- id (numero)
+- id_usuario (chave estrangeira)
+- nome (texto)
+- artista (texto)
+- letra(texto)
+- arquivo ou anexo
+- cifras
+- ano (numero)
+- estilo (chave estrangeira)
+
+Tabela: estilo
+Campos:
+- id (numero)
+- nome (texto)
+
+Tabela: comentarios
+id
