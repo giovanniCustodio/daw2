@@ -6,15 +6,20 @@ class UsuarioOperacoes {
         //
     }
 
-    public function registrarDados() {
+    public function registrarDadosDoUsuario() {
         try {
             include_once 'conexao.php';
-            $sql = "insert into usuario(nomeUsuario, emailUsuario, telefone senhaUsuario) "
-                    . "values ('', '', 0,'');";
+            
+            $sql = "insert into usuario(nomeUsuario, emailUsuario, telefone, senhaUsuario) "
+                    . "values (:nomeUsuario, :emailUsuario, :telefone, :senhaUsuario);";
             
             $preparedStatment = $connection->prepare($sql);
-
-            $preparedStatment->bindParam(":texto", $pTextoBusca);
+            
+            $preparedStatment = bindParam(':nomeUsuario', $nomeUsuario);
+            $preparedStatment = bindParam(':emailUsuario', $emailUsuario);
+            $preparedStatment = bindParam(':telefone', $telefone);
+            $preparedStatment = bindParam(':senhaUsuario', $senhaUsuario);
+            
             $result = array();
 
             if ($preparedStatment->execute() == TRUE) {
